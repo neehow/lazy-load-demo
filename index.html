@@ -16,72 +16,81 @@
     }
 
     .wrapper > img {
-      width: 100%;
-      height: 200px;
+      width: auto;
+      height: 300px;
       display: block;
       margin: 10px auto;
       border-radius: 8px;
-      border: 1px solid #dedede;
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
     }
 
-    @media only screen and (min-width: 500px) {
+    /* @media only screen and (min-width: 500px) {
       .wrapper > img {
         width: 60%;
       }
-    }
+    } */
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <img src="" alt="image 1" />
-    <img src="" alt="image 2" />
-    <img src="" alt="image 3" />
-    <img src="" alt="image 4" />
-    <img src="" alt="image 5" />
-    <img src="" alt="image 6" />
-    <img src="" alt="image 7" />
-    <img src="" alt="image 8" />
-    <img src="" alt="image 9" />
-    <img src="" alt="image 10" />
-    <img src="" alt="image 11" />
-    <img src="" alt="image 12" />
-    <img src="" alt="image 13" />
-    <img src="" alt="image 14" />
-    <img src="" alt="image 15" />
-    <img src="" alt="image 16" />
-    <img src="" alt="image 17" />
-    <img src="" alt="image 18" />
-    <img src="" alt="image 19" />
-    <img src="" alt="image 20" />
+    <img src="./image-placeholder.png" alt="image 1" />
+    <img src="./image-placeholder.png" alt="image 2" />
+    <img src="./image-placeholder.png" alt="image 3" />
+    <img src="./image-placeholder.png" alt="image 4" />
+    <img src="./image-placeholder.png" alt="image 5" />
+    <img src="./image-placeholder.png" alt="image 6" />
+    <img src="./image-placeholder.png" alt="image 7" />
+    <img src="./image-placeholder.png" alt="image 8" />
+    <img src="./image-placeholder.png" alt="image 9" />
+    <img src="./image-placeholder.png" alt="image 10" />
+    <img src="./image-placeholder.png" alt="image 11" />
+    <img src="./image-placeholder.png" alt="image 12" />
+    <img src="./image-placeholder.png" alt="image 13" />
+    <img src="./image-placeholder.png" alt="image 14" />
+    <img src="./image-placeholder.png" alt="image 15" />
+    <img src="./image-placeholder.png" alt="image 16" />
+    <img src="./image-placeholder.png" alt="image 17" />
+    <img src="./image-placeholder.png" alt="image 18" />
+    <img src="./image-placeholder.png" alt="image 19" />
+    <img src="./image-placeholder.png" alt="image 20" />
+    <img src="./image-placeholder.png" alt="image 21" />
+    <img src="./image-placeholder.png" alt="image 22" />
+    <img src="./image-placeholder.png" alt="image 23" />
+    <img src="./image-placeholder.png" alt="image 24" />
+    <img src="./image-placeholder.png" alt="image 25" />
+    <img src="./image-placeholder.png" alt="image 26" />
+    <img src="./image-placeholder.png" alt="image 27" />
+    <img src="./image-placeholder.png" alt="image 28" />
+    <img src="./image-placeholder.png" alt="image 29" />
+    <img src="./image-placeholder.png" alt="image 30" />
   </div>
   
   <script>
-    function lazyLoad() {console.log('lazyLoad!')
+    function lazyLoad() {
       document.querySelectorAll('.wrapper > img').forEach(elem => {
-        if (elem.getAttribute('src')) return;
+        if (elem.getAttribute('src') !== './image-placeholder.png') return;
         const { clientHeight, scrollTop } = document.documentElement;
         const { offsetTop } = elem;
-        console.log('offsetTOp:', offsetTop, ', scrollTop:', scrollTop, ', clientHeight:', clientHeight)
         if (offsetTop - scrollTop <= clientHeight) {
-          // https://placeimg.com/750/600/any
-          elem.src = 'http://lorempixel.com/750/600/nature/?t=' + Math.random(); // 随机图片
+          elem.src = 'http://lorempixel.com/600/600/nature/?t=' + Math.random(); // 随机图片
         }
       });
     }
-
+    
     function throttle(fn, wait) {
       let time = new Date();
       return function() {
         const now = new Date();
-          if (now - time >= wait) {
-            fn.apply(this, arguments);
-            time = new Date();
-          }
+        if (now - time >= wait) {
+          fn.apply(this, arguments);
+          time = new Date();
+        }
       }
     }
-
+    
     window.addEventListener('load', lazyLoad, false);
     window.addEventListener('scroll', throttle(lazyLoad, 20), false);
-  </script>
+    // https://placeimg.com/750/600/any
+    </script>
 </body>
 </html>
