@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>图片懒加载demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
+      padding: 10px;
+    }
+
+    .wrapper > img {
+      width: 100%;
+      height: 200px;
+      display: block;
+      margin: 10px auto;
+      border-radius: 8px;
+      border: 1px solid #dedede;
+    }
+
+    @media only screen and (min-width: 500px) {
+      .wrapper > img {
+        width: 60%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <img src="" alt="image 1" />
+    <img src="" alt="image 2" />
+    <img src="" alt="image 3" />
+    <img src="" alt="image 4" />
+    <img src="" alt="image 5" />
+    <img src="" alt="image 6" />
+    <img src="" alt="image 7" />
+    <img src="" alt="image 8" />
+    <img src="" alt="image 9" />
+    <img src="" alt="image 10" />
+    <img src="" alt="image 11" />
+    <img src="" alt="image 12" />
+    <img src="" alt="image 13" />
+    <img src="" alt="image 14" />
+    <img src="" alt="image 15" />
+    <img src="" alt="image 16" />
+    <img src="" alt="image 17" />
+    <img src="" alt="image 18" />
+    <img src="" alt="image 19" />
+    <img src="" alt="image 20" />
+  </div>
+  
+  <script>
+    function lazyLoad() {console.log('lazyLoad!')
+      document.querySelectorAll('.wrapper > img').forEach(elem => {
+        if (elem.getAttribute('src')) return;
+        const { clientHeight, scrollTop } = document.documentElement;
+        const { offsetTop } = elem;
+        console.log('offsetTOp:', offsetTop, ', scrollTop:', scrollTop, ', clientHeight:', clientHeight)
+        if (offsetTop - scrollTop <= clientHeight) {
+          // https://placeimg.com/750/600/any
+          elem.src = 'http://lorempixel.com/750/600/nature/?t=' + Math.random(); // 随机图片
+        }
+      });
+    }
+
+    function throttle(fn, wait) {
+      let time = new Date();
+      return function() {
+        const now = new Date();
+          if (now - time >= wait) {
+            fn.apply(this, arguments);
+            time = new Date();
+          }
+      }
+    }
+
+    window.addEventListener('load', lazyLoad, false);
+    window.addEventListener('scroll', throttle(lazyLoad, 20), false);
+  </script>
+</body>
+</html>
