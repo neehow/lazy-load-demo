@@ -33,46 +33,47 @@
 </head>
 <body>
   <div class="wrapper">
-    <img src="./image-placeholder.png" alt="image 1" />
-    <img src="./image-placeholder.png" alt="image 2" />
-    <img src="./image-placeholder.png" alt="image 3" />
-    <img src="./image-placeholder.png" alt="image 4" />
-    <img src="./image-placeholder.png" alt="image 5" />
-    <img src="./image-placeholder.png" alt="image 6" />
-    <img src="./image-placeholder.png" alt="image 7" />
-    <img src="./image-placeholder.png" alt="image 8" />
-    <img src="./image-placeholder.png" alt="image 9" />
-    <img src="./image-placeholder.png" alt="image 10" />
-    <img src="./image-placeholder.png" alt="image 11" />
-    <img src="./image-placeholder.png" alt="image 12" />
-    <img src="./image-placeholder.png" alt="image 13" />
-    <img src="./image-placeholder.png" alt="image 14" />
-    <img src="./image-placeholder.png" alt="image 15" />
-    <img src="./image-placeholder.png" alt="image 16" />
-    <img src="./image-placeholder.png" alt="image 17" />
-    <img src="./image-placeholder.png" alt="image 18" />
-    <img src="./image-placeholder.png" alt="image 19" />
-    <img src="./image-placeholder.png" alt="image 20" />
-    <img src="./image-placeholder.png" alt="image 21" />
-    <img src="./image-placeholder.png" alt="image 22" />
-    <img src="./image-placeholder.png" alt="image 23" />
-    <img src="./image-placeholder.png" alt="image 24" />
-    <img src="./image-placeholder.png" alt="image 25" />
-    <img src="./image-placeholder.png" alt="image 26" />
-    <img src="./image-placeholder.png" alt="image 27" />
-    <img src="./image-placeholder.png" alt="image 28" />
-    <img src="./image-placeholder.png" alt="image 29" />
-    <img src="./image-placeholder.png" alt="image 30" />
+    <img src="./image-placeholder-gray.png" alt="image 1" />
+    <img src="./image-placeholder-gray.png" alt="image 2" />
+    <img src="./image-placeholder-gray.png" alt="image 3" />
+    <img src="./image-placeholder-gray.png" alt="image 4" />
+    <img src="./image-placeholder-gray.png" alt="image 5" />
+    <img src="./image-placeholder-gray.png" alt="image 6" />
+    <img src="./image-placeholder-gray.png" alt="image 7" />
+    <img src="./image-placeholder-gray.png" alt="image 8" />
+    <img src="./image-placeholder-gray.png" alt="image 9" />
+    <img src="./image-placeholder-gray.png" alt="image 10" />
+    <img src="./image-placeholder-gray.png" alt="image 11" />
+    <img src="./image-placeholder-gray.png" alt="image 12" />
+    <img src="./image-placeholder-gray.png" alt="image 13" />
+    <img src="./image-placeholder-gray.png" alt="image 14" />
+    <img src="./image-placeholder-gray.png" alt="image 15" />
+    <img src="./image-placeholder-gray.png" alt="image 16" />
+    <img src="./image-placeholder-gray.png" alt="image 17" />
+    <img src="./image-placeholder-gray.png" alt="image 18" />
+    <img src="./image-placeholder-gray.png" alt="image 19" />
+    <img src="./image-placeholder-gray.png" alt="image 20" />
+    <img src="./image-placeholder-gray.png" alt="image 21" />
+    <img src="./image-placeholder-gray.png" alt="image 22" />
+    <img src="./image-placeholder-gray.png" alt="image 23" />
+    <img src="./image-placeholder-gray.png" alt="image 24" />
+    <img src="./image-placeholder-gray.png" alt="image 25" />
+    <img src="./image-placeholder-gray.png" alt="image 26" />
+    <img src="./image-placeholder-gray.png" alt="image 27" />
+    <img src="./image-placeholder-gray.png" alt="image 28" />
+    <img src="./image-placeholder-gray.png" alt="image 29" />
+    <img src="./image-placeholder-gray.png" alt="image 30" />
   </div>
   
   <script>
+    let count = 0;
     function lazyLoad() {
       document.querySelectorAll('.wrapper > img').forEach(elem => {
-        if (elem.getAttribute('src') !== './image-placeholder.png') return;
+        if (elem.getAttribute('src') !== './image-placeholder-gray.png') return;
         const { clientHeight, scrollTop } = document.documentElement;
         const { offsetTop } = elem;
         if (offsetTop - scrollTop <= clientHeight) {
-          elem.src = 'http://lorempixel.com/600/600/nature/?t=' + Math.random(); // 随机图片
+          elem.src = '//lorempixel.com/600/600/nature/?t=' + Math.random(); // 随机图片
         }
       });
     }
